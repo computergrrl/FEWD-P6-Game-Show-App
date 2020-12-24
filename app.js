@@ -1,15 +1,63 @@
 //GLOBAL VARIABLES 
 const qwerty = document.getElementById("qwerty");
 const phrase = document.getElementById("phrase");
-const startGame = document.querySelector(".btn__reset");
-startGame.style.cursor = "pointer";
+const buttonStart = document.querySelector(".btn__reset");
+buttonStart.style.cursor = "pointer";
 let missed = 0;
 
 
 //Remove overlay and start game
 
-startGame.addEventListener("click" , () => {
-    const overlay = document.getElementById("overlay");
-    overlay.style.display = "none"
+buttonStart.addEventListener("click", () => {
+  const overlay = document.getElementById("overlay");
+  overlay.style.display = "none";
+  
 
 });
+
+//function to play audio on certain button clicks
+function playAudio(x) {
+  x.play();
+}
+
+//create empty array to store used values
+let array2 = []; 
+
+
+function getRandomMovie() {
+  
+  //Choose a random phrase
+  let random = Math.floor(Math.random() * (movies.length));
+  let movie = movies[random];
+
+  //remove movie title from array after selected and push it to another array
+  let remove = movies.splice(random, 1);
+  array2.push(remove[0]);
+
+  //once all movies have been used, reset the array
+  if(movies.length === 0) {
+    movies = array2;
+    array2 = [];
+  }
+ console.log(movies);
+ console.log(array2);
+ return movie;
+}
+
+
+
+
+
+/*
+Add a button to the page for sound effect
+
+Add an event listener to the button that plays the sound effect that goes with that movie
+  - Figure out a way to identify the phrase
+  - match the phrase to the sound
+     (Switch loop?)
+
+
+
+
+
+*/

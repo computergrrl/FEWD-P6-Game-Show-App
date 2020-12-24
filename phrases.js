@@ -14,14 +14,18 @@ const jesus = document.getElementById("jesus");
 const myname = document.getElementById("myname");
 const wrongguy = document.getElementById("wrongguy");
 
-let bigL = [
-  jesus, 
-  wrongguy,
-];
+// let bigL = [
+//   jesus, 
+//   wrongguy,
+// ];
 
-let princess = [
-  disappointment, 
-  inconceivable,
-  myname,
-];
+// let princess = [
+//   disappointment, 
+//   inconceivable,
+//   myname,
+// ];
 
+let moviesAndSounds = [
+  {title: "The Big Lebowski", sounds: [jesus, wrongguy]},
+  {title: "The Princess Bride" , sounds: [disappointment, inconceivable, myname]},
+];

@@ -43,34 +43,14 @@ function getRandomMovie() {
   return movie.toLowerCase();
 }
 
-
 function pairMovieWithSounds() {
-  let movieTitle = getRandomMovie();
-  console.log(movieTitle);
-  //let val;
+  let movieTitle = getRandomMovie(); 
 
-  switch (movieTitle.includes(val)) {
-    case "princess":
-      playAudio(disappointment);
-      break;
-    case "lebowski":
-      playAudio(wrongguy);
-      break;
-    default:
-      console.log("No movie found with this value");
+  console.log(movieTitle);
+
+  for(let movies of moviesAndSounds) {
+    if(movies.title.toLowerCase() === movieTitle) {
+      return movies.sounds;
+    }
   }
 }
-
-/*
-Add a button to the page for sound effect
-
-Add an event listener to the button that plays the sound effect that goes with that movie
-  - Figure out a way to identify the phrase
-  - match the phrase to the sound
-     (Switch loop?)
-
-
-
-
-
-*/

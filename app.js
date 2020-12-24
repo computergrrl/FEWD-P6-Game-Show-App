@@ -11,7 +11,7 @@ let missed = 0;
 buttonStart.addEventListener("click", () => {
   const overlay = document.getElementById("overlay");
   overlay.style.display = "none";
-  
+
 
 });
 
@@ -21,11 +21,11 @@ function playAudio(x) {
 }
 
 //create empty array to store used values
-let array2 = []; 
+let array2 = [];
 
 
 function getRandomMovie() {
-  
+
   //Choose a random phrase
   let random = Math.floor(Math.random() * (movies.length));
   let movie = movies[random];
@@ -35,18 +35,31 @@ function getRandomMovie() {
   array2.push(remove[0]);
 
   //once all movies have been used, reset the array
-  if(movies.length === 0) {
+  if (movies.length === 0) {
     movies = array2;
     array2 = [];
   }
- console.log(movies);
- console.log(array2);
- return movie;
+
+  return movie.toLowerCase();
 }
 
 
+function pairMovieWithSounds() {
+  let movieTitle = getRandomMovie();
+  console.log(movieTitle);
+  //let val;
 
-
+  switch (movieTitle.includes(val)) {
+    case "princess":
+      playAudio(disappointment);
+      break;
+    case "lebowski":
+      playAudio(wrongguy);
+      break;
+    default:
+      console.log("No movie found with this value");
+  }
+}
 
 /*
 Add a button to the page for sound effect

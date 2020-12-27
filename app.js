@@ -1,11 +1,11 @@
 //GLOBAL VARIABLES 
 const qwerty = document.getElementById("qwerty");
-const phrase = document.getElementById("phrase");
+const phrase = document.querySelector("#phrase ul");
 const buttonStart = document.querySelector(".btn__reset");
 buttonStart.style.cursor = "pointer";
 const soundHint = document.getElementById("soundHint");
 let missed = 0;
-let movie; 
+let movie;
 
 //Remove overlay and start game
 
@@ -39,14 +39,13 @@ function getRandomMovie() {
   return movie;
 }
 
+//This function sets the movie variable to random movie object then returns the sounds array asscociated w/ that object
 function pairMovieWithSounds() {
-  movie = getRandomMovie(); 
-  console.log(movie.title);
+  movie = getRandomMovie();
   return movie.sounds;
 }
 
-
-
+//this function picks a random sound from the movie's sound array and plays it
 function randomSounds(movieObject) {
   let sounds = movieObject.sounds;
   let random = Math.floor(Math.random() * (sounds.length));
@@ -57,6 +56,27 @@ function randomSounds(movieObject) {
 function startGame() {
   pairMovieWithSounds();
   randomSounds(movie);
+  addPhraseToDisplay();
+}
+
+function movieTitleToArray() {
+  let string = movie.title.toLowerCase();
+  return string.split("");
+}
+
+function addPhraseToDisplay() {
+  let array = movieTitleToArray();
+  console.log(array);
+
+  for (let letters of array) {
+    if (letters == " ") {
+      phrase.innerHTML += `<li class="space">${letters}</li>`
+    } else {
+      phrase.innerHTML += `<li class="letter">${letters}</li>`
+    }
+    
+  }
+
 }
 /*start game function will need:
 

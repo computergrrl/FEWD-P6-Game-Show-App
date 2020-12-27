@@ -6,7 +6,8 @@
 :root {
   --color-win: #78CF82;
   --color-lose: #D94545;
-  --color-start: #5b85b7;
+  --color-start: #000;
+  --color-letters: deeppink;
   --color-neutral: #445069;
   --color-neutral-light: #D2D2D2;
   --color-keys: #37474F;
@@ -23,6 +24,7 @@
 }
 
 body {
+  background-color: #000;
   justify-content: space-evenly;
   flex-direction: column;
   display: flex;
@@ -72,16 +74,16 @@ button {
 /* Title */
 
 .header {
-  color: var(--color-start);
+  color: var(--color-letters);
 }
 
 /* Phrase */
 
 .letter {
   font-size: var(--font-size-medium);
-  height: 65px;
-  width: 65px;
-  padding: 20px 1px 0 1px;
+  height: 45px;
+  width: 45px;
+  padding: 20px 1px 4px 1px;
   margin-right: 2px;
   color: transparent;
   background: var(--color-neutral-light);
@@ -119,6 +121,15 @@ button {
   font-size: var(--font-size-medium);
 }
 
+.btn__reset:hover {
+  border: 2px solid lime;
+  color: lime;
+}
+
+#soundHint:hover {
+  border: 2px solid var(--color-letters);
+  color: var(--color-letters);
+}
 /* Overlay */
 
 #overlay {

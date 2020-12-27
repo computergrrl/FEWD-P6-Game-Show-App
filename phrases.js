@@ -1,12 +1,3 @@
-let movies = [
-    "The Princess Bride", 
-    "The Big Lebowski",
-    "Top Gun",
-    "Die Hard",
-    "Breakfast Club",
-    "Short Circuit",
-];
-
 //variables and arrays for sounds
 const disappointment = document.getElementById("disappointment");
 const inconceivable = document.getElementById("inconceivable");
@@ -21,11 +12,12 @@ const majorappliance = document.getElementById("majorappliance");
 const helpme = document.getElementById("helpme");
 const suffer = document.getElementById("suffer");
 const droidsyourlooking = document.getElementById("droidsyourlooking");
+const force = document.getElementById("forcewithyou");
 
 let moviesAndSounds = [
   {title: "The Big Lebowski", sounds: [abides, wrongguy]},
   {title: "The Princess Bride" , sounds: [disappointment, inconceivable, cantcompete,]},
   {title: "Ghostbusters", sounds: [backoff, dontcross, keymaster, majorappliance,]},
-  {title: "Star Wars", sounds: [suffer, droidsyourlooking, helpme,]},
+  {title: "Star Wars Episode IV", sounds: [suffer, droidsyourlooking, helpme, forcewithyou,]},
   
 ];

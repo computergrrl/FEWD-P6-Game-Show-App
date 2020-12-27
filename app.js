@@ -1,5 +1,5 @@
 //GLOBAL VARIABLES 
-const qwerty = document.getElementById("qwerty");
+const keyboard = document.querySelectorAll("#qwerty button");
 const phrase = document.querySelector("#phrase ul");
 const buttonStart = document.querySelector(".btn__reset");
 buttonStart.style.cursor = "pointer";
@@ -57,6 +57,7 @@ function startGame() {
   pairMovieWithSounds();
   randomSounds(movie);
   addPhraseToDisplay();
+  keyboardSetup();
 }
 
 function movieTitleToArray() {
@@ -66,7 +67,6 @@ function movieTitleToArray() {
 
 function addPhraseToDisplay() {
   let array = movieTitleToArray();
-  console.log(array);
 
   for (let letters of array) {
     if (letters == " ") {
@@ -86,6 +86,19 @@ function checkLetter(letter) {
     return false;
   }
 }
+
+function keyboardSetup () {
+  for (let letters of keyboard) {
+    letters.classList.remove("chosen", "wrong");
+    letters.disabled = false;
+    letters.addEventListener("click" , (e) => {
+      let letter = e.target.textContent;
+      console.log(letter);
+      checkLetter(letter);
+    });
+  }
+}
+
 /*start game function will need:
 
 pairMovieWithSounds();

@@ -10,7 +10,7 @@ let missed = 0;
 buttonStart.addEventListener("click", () => {
   const overlay = document.getElementById("overlay");
   overlay.style.display = "none";
-
+  startGame();
 
 });
 
@@ -46,7 +46,7 @@ function pairMovieWithSounds() {
   return movie.sounds;
 }
 
-pairMovieWithSounds();
+
 
 function randomSounds(movieObject) {
   let sounds = movieObject.sounds;
@@ -55,7 +55,10 @@ function randomSounds(movieObject) {
   audio.play();
 }
 
-
+function startGame() {
+  pairMovieWithSounds();
+  randomSounds(movie);
+}
 /*start game function will need:
 
 pairMovieWithSounds();

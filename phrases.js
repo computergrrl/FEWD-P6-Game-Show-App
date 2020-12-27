@@ -12,15 +12,15 @@ const disappointment = document.getElementById("disappointment");
 const inconceivable = document.getElementById("inconceivable");
 const myname = document.getElementById("myname");
 const wrongguy = document.getElementById("wrongguy");
-const wrongguy = document.getElementById("abides");
-const wrongguy = document.getElementById("backoff");
-const wrongguy = document.getElementById("cantcompete");
-const wrongguy = document.getElementById("dontcross");
-const wrongguy = document.getElementById("keymaster");
-const wrongguy = document.getElementById("majorappliance");
-const wrongguy = document.getElementById("helpme");
-const wrongguy = document.getElementById("suffer");
-const wrongguy = document.getElementById("droidsyourlooking");
+const abides = document.getElementById("abides");
+const backoff = document.getElementById("backoff");
+const cantcompete = document.getElementById("cantcompete");
+const dontcross = document.getElementById("dontcross");
+const keymaster = document.getElementById("keymaster");
+const majorappliance = document.getElementById("majorappliance");
+const helpme = document.getElementById("helpme");
+const suffer = document.getElementById("suffer");
+const droidsyourlooking = document.getElementById("droidsyourlooking");
 
 let moviesAndSounds = [
   {title: "The Big Lebowski", sounds: [abides, wrongguy]},

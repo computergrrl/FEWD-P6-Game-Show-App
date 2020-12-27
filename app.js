@@ -74,9 +74,17 @@ function addPhraseToDisplay() {
     } else {
       phrase.innerHTML += `<li class="letter">${letters}</li>`
     }
-    
+
   }
 
+}
+
+function checkLetter(letter) {
+  if (movieTitleToArray().includes(letter)) {
+    return true;
+  } else {
+    return false;
+  }
 }
 /*start game function will need:
 

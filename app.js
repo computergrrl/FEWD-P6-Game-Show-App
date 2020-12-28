@@ -2,13 +2,13 @@
 const keyboard = document.querySelectorAll("#qwerty button");
 const phrase = document.querySelector("#phrase ul");
 const buttonStart = document.querySelector(".btn__reset");
+const theLetters = document.getElementsByClassName("letter");
 buttonStart.style.cursor = "pointer";
 const soundHint = document.getElementById("soundHint");
 let missed = 0;
 let movie;
 
 //Remove overlay and start game
-
 buttonStart.addEventListener("click", () => {
   const overlay = document.getElementById("overlay");
   overlay.style.display = "none";
@@ -16,6 +16,7 @@ buttonStart.addEventListener("click", () => {
 
 });
 
+//event listener to play a random movie sound from the chosen movie
 soundHint.addEventListener("click", () => {
   randomSounds(movie);
 });
@@ -28,7 +29,7 @@ function getRandomMovie() {
   //Choose a random phrase
   let random = Math.floor(Math.random() * (moviesAndSounds.length));
   let movie = moviesAndSounds[random];
-  //remove movie title from array after selected and push it to another array
+  //remove movie from array after selected and push it to another array
   let remove = moviesAndSounds.splice(random, 1);
   array2.push(remove[0]);
   //once all movies have been used, reset the array
@@ -39,7 +40,8 @@ function getRandomMovie() {
   return movie;
 }
 
-//This function sets the movie variable to random movie object then returns the sounds array asscociated w/ that object
+/*This function sets the movie variable to random movie object
+ then returns the sounds array asscociated w/ that object*/
 function pairMovieWithSounds() {
   movie = getRandomMovie();
   return movie.sounds;
@@ -53,6 +55,7 @@ function randomSounds(movieObject) {
   audio.play();
 }
 
+//this function calls all the functions needed to start a new game
 function startGame() {
   pairMovieWithSounds();
   randomSounds(movie);
@@ -60,11 +63,13 @@ function startGame() {
   keyboardSetup();
 }
 
+//function breaks movie title into an array of letters
 function movieTitleToArray() {
   let string = movie.title.toLowerCase();
   return string.split("");
 }
 
+//function adds the movie title to the "board" for gameplay
 function addPhraseToDisplay() {
   let array = movieTitleToArray();
 
@@ -79,6 +84,7 @@ function addPhraseToDisplay() {
 
 }
 
+//function that checks if letter is in the phrase
 function checkLetter(letter) {
   if (movieTitleToArray().includes(letter)) {
     return true;
@@ -87,23 +93,48 @@ function checkLetter(letter) {
   }
 }
 
-function keyboardSetup () {
+/* function that sets up the keyboard at the beginning of each game and
+adds event listeners to all the letter keys */
+function keyboardSetup() {
   for (let letters of keyboard) {
     letters.classList.remove("chosen", "wrong");
     letters.disabled = false;
-    letters.addEventListener("click" , (e) => {
+    letters.addEventListener("click", (e) => {
       let letter = e.target.textContent;
-      console.log(letter);
-      checkLetter(letter);
+      gamePlay(letter);
     });
+  } //close for loop
+} //close function
+
+function gamePlay(letter) {
+  if (checkLetter(letter)) {
+    showLetterInPhrase(letter);
+    correctLetter(letter);
+  } else if (!checkLetter(letter)) {
+    incorrectLetter(letter);
   }
 }
 
-/*start game function will need:
+function showLetterInPhrase(letter) {
+  for (let letters of theLetters) {
+    if (letters.textContent == letter) {
+      letters.className = "show letter";
+    }
+  }
+}
 
-pairMovieWithSounds();
-randomSounds(movie);
+function correctLetter(letter) {
+  for (let key of keyboard) {
+    if (key.textContent == letter) {
+      key.classList.add("chosen");
+    }
+  }
+}
 
-
-Sound hint button will = randomSounds(movie);
-*/
+function incorrectLetter(letter) {
+  for (let key of keyboard) {
+    if (key.textContent == letter) {
+      key.classList.add("wrong");
+    }
+  }
+}

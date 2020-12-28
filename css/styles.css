@@ -106,11 +106,32 @@ button {
   justify-content: center;
 }
 
-.chosen {
+/* .chosen {
   background: var(--color-neutral);
   border-radius: 5px;
   font-size: var(--font-size-medium);
   color: #FFFFFF;
+} */
+
+.chosen {
+  background: #77777a;
+  border-radius: 5px;
+  border-width: 3px;
+  border-color: #34eb52;
+  font-size: var(--font-size-medium);
+  color: #FFFFFF;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.wrong {
+  background: #77777a;
+  border-width: 3px;
+  border-color: red;
+  color: #FFFFFF;
+  cursor: not-allowed;
+  pointer-events: none;
+
 }
 
 .btn__reset {

@@ -18,6 +18,6 @@ let moviesAndSounds = [
   {title: "The Big Lebowski", sounds: [abides, wrongguy]},
   {title: "The Princess Bride" , sounds: [disappointment, inconceivable, cantcompete,]},
   {title: "Ghostbusters", sounds: [backoff, dontcross, keymaster, majorappliance,]},
-  {title: "Star Wars Episode IV", sounds: [suffer, droidsyourlooking, helpme, forcewithyou,]},
+  {title: "Star Wars A New Hope", sounds: [suffer, droidsyourlooking, helpme, forcewithyou,]},
   
 ];

@@ -6,6 +6,7 @@ const theLetters = document.getElementsByClassName("letter");
 buttonStart.style.cursor = "pointer";
 const soundHint = document.getElementById("soundHint");
 const newgame = document.getElementById("newgame");
+const lives = document.querySelectorAll("#scoreboard ol li img");
 let missed = 0;
 let movie;
 let correct = [];

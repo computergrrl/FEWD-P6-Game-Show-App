@@ -109,6 +109,7 @@ function gamePlay(letter) {
   } else if (!checkLetter(letter)) {
     incorrectLetter(letter);
     missed += 1;
+    removeHearts();
     checkForLose();
   }
 }
@@ -144,7 +145,7 @@ function incorrectLetter(letter) {
 function resetGame() {
   phrase.innerHTML = " ";
   missed = 0;
-  //reset lives here somewhere;
+  resetHearts();
   startGame();
 
 }
@@ -179,5 +180,20 @@ function checkForWin() {
 function checkForLose() {
   if (missed === 5 || missed > 4) {
     console.log("You lose!");
+  }
+}
+
+//remove a heart from the scoreboard
+function removeHearts() {
+  let index = missed -1; //set an index variable to use on lives array
+  const source = "images/lostHeart.png";
+  lives[index].src = source; //set the next heart (starting at zero index) to the new src image)
+}
+
+//reset the hearts on the scoreboard
+function resetHearts() {
+  let source = "images/liveHeart.png";
+  for (let life of lives) {
+    life.src = source;
   }
 }

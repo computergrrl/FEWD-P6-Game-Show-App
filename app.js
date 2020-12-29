@@ -1,17 +1,3 @@
-//GLOBAL VARIABLES 
-const keyboard = document.querySelectorAll("#qwerty button");
-const phrase = document.querySelector("#phrase ul");
-const buttonStart = document.querySelector(".btn__reset");
-const theLetters = document.getElementsByClassName("letter");
-buttonStart.style.cursor = "pointer";
-const soundHint = document.getElementById("soundHint");
-const newgame = document.getElementById("newgame");
-let missed = 0;
-let movie;
-//create empty arrays to store used values
-let array2 = [];
-let array3 = [];
-
 //Remove overlay and start game
 buttonStart.addEventListener("click", () => {
   const overlay = document.getElementById("overlay");
@@ -48,9 +34,11 @@ function randomSounds(movieObject) {
   let random = Math.floor(Math.random() * (sounds.length));
   let audio = sounds[random];
   audio.play();
+
   //remove sounds from array after they're played
   let remove = sounds.splice(random, 1);
   array3.push(remove[0]);
+
   //once all movies have been used, reset the array
   if (sounds.length === 0) {
     movieObject.sounds = array3;
@@ -112,8 +100,8 @@ function keyboardSetup() {
   }
 }
 
-/* function for handling letter clicks, showing the correct letters in the 
-phrase and adding appropriate classes to the keyboard letters */
+/* function for handling letter clicks -- shows the correct letters in the 
+phrase and adds appropriate classes to the keyboard letters */
 function gamePlay(letter) {
   if (checkLetter(letter)) {
     showLetterInPhrase(letter);
@@ -133,6 +121,7 @@ function showLetterInPhrase(letter) {
   }
 }
 
+//handle correct letter guess
 function correctLetter(letter) {
   for (let key of keyboard) {
     if (key.textContent == letter) {
@@ -141,6 +130,7 @@ function correctLetter(letter) {
   }
 }
 
+//handle incorrect letter guess
 function incorrectLetter(letter) {
   for (let key of keyboard) {
     if (key.textContent == letter) {
@@ -149,6 +139,7 @@ function incorrectLetter(letter) {
   }
 }
 
+//function to reset all the things before a new game starts
 function resetGame() {
   phrase.innerHTML = " ";
   missed = 0;

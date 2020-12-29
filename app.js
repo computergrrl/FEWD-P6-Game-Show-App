@@ -5,6 +5,7 @@ const buttonStart = document.querySelector(".btn__reset");
 const theLetters = document.getElementsByClassName("letter");
 buttonStart.style.cursor = "pointer";
 const soundHint = document.getElementById("soundHint");
+const newgame = document.getElementById("newgame");
 let missed = 0;
 let movie;
 
@@ -40,8 +41,8 @@ function getRandomMovie() {
   return movie;
 }
 
-/*This function sets the movie variable to random movie object
- then returns the sounds array asscociated w/ that object*/
+/*This function sets the "movie" variable to random movie object
+ then returns the sounds array asscociated w/ that object */
 function pairMovieWithSounds() {
   movie = getRandomMovie();
   return movie.sounds;
@@ -79,9 +80,7 @@ function addPhraseToDisplay() {
     } else {
       phrase.innerHTML += `<li class="letter">${letters}</li>`
     }
-
   }
-
 }
 
 //function that checks if letter is in the phrase
@@ -99,19 +98,30 @@ function keyboardSetup() {
   for (let letters of keyboard) {
     letters.classList.remove("chosen", "wrong");
     letters.disabled = false;
-    letters.addEventListener("click", (e) => {
-      let letter = e.target.textContent;
-      gamePlay(letter);
-    });
-  } //close for loop
-} //close function
+    // letters.addEventListener("click", (e) => {
+    //   let letter = e.target.textContent;
+    //   gamePlay(letter);
+    // });
+  }
+} 
 
+// function testEventListener(e) {
+//   for (let letters of keyboard) {
+//       let letter = e.target.textContent;
+//       gamePlay(letter);
+//     });
+//   }
+// }
+
+/* function for handling letter clicks, showing the correct letters in the 
+phrase and adding appropriate classes to the keyboard letters */
 function gamePlay(letter) {
   if (checkLetter(letter)) {
     showLetterInPhrase(letter);
     correctLetter(letter);
   } else if (!checkLetter(letter)) {
     incorrectLetter(letter);
+    missed += 1;
   }
 }
 
@@ -137,4 +147,24 @@ function incorrectLetter(letter) {
       key.classList.add("wrong");
     }
   }
+}
+
+function resetGame() {
+  phrase.innerHTML = " ";
+  missed = 0;
+  startGame();
+  //reset lives here somewhere;
+}
+
+newgame.addEventListener("click", () => {
+    resetGame();
+  }
+
+);
+
+for (let letters of keyboard) {
+  letters.addEventListener("click", (e) => {
+    let letter = e.target.textContent;
+    gamePlay(letter);
+  });
 }

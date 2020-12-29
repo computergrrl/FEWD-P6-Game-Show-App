@@ -8,6 +8,9 @@ const soundHint = document.getElementById("soundHint");
 const newgame = document.getElementById("newgame");
 let missed = 0;
 let movie;
+//create empty arrays to store used values
+let array2 = [];
+let array3 = [];
 
 //Remove overlay and start game
 buttonStart.addEventListener("click", () => {
@@ -16,15 +19,6 @@ buttonStart.addEventListener("click", () => {
   startGame();
 
 });
-
-//event listener to play a random movie sound from the chosen movie
-soundHint.addEventListener("click", () => {
-  randomSounds(movie);
-});
-
-//create empty array to store used values
-let array2 = [];
-
 
 function getRandomMovie() {
   //Choose a random phrase
@@ -54,7 +48,24 @@ function randomSounds(movieObject) {
   let random = Math.floor(Math.random() * (sounds.length));
   let audio = sounds[random];
   audio.play();
+  //remove sounds from array after they're played
+  let remove = sounds.splice(random, 1);
+  array3.push(remove[0]);
+  //once all movies have been used, reset the array
+  if (sounds.length === 0) {
+    movieObject.sounds = array3;
+    array3 = [];
+  }
+  console.log(sounds);
+  console.log(array3);
+
 }
+
+//event listener to play a random movie sound from the chosen movie
+soundHint.addEventListener("click", () => {
+  randomSounds(movie);
+});
+
 
 //this function calls all the functions needed to start a new game
 function startGame() {
@@ -98,20 +109,8 @@ function keyboardSetup() {
   for (let letters of keyboard) {
     letters.classList.remove("chosen", "wrong");
     letters.disabled = false;
-    // letters.addEventListener("click", (e) => {
-    //   let letter = e.target.textContent;
-    //   gamePlay(letter);
-    // });
   }
-} 
-
-// function testEventListener(e) {
-//   for (let letters of keyboard) {
-//       let letter = e.target.textContent;
-//       gamePlay(letter);
-//     });
-//   }
-// }
+}
 
 /* function for handling letter clicks, showing the correct letters in the 
 phrase and adding appropriate classes to the keyboard letters */
@@ -124,6 +123,7 @@ function gamePlay(letter) {
     missed += 1;
   }
 }
+
 
 function showLetterInPhrase(letter) {
   for (let letters of theLetters) {
@@ -152,8 +152,9 @@ function incorrectLetter(letter) {
 function resetGame() {
   phrase.innerHTML = " ";
   missed = 0;
-  startGame();
   //reset lives here somewhere;
+  startGame();
+
 }
 
 newgame.addEventListener("click", () => {
@@ -162,6 +163,7 @@ newgame.addEventListener("click", () => {
 
 );
 
+//this loop sets the keyboard letters up for initial gameplay
 for (let letters of keyboard) {
   letters.addEventListener("click", (e) => {
     let letter = e.target.textContent;

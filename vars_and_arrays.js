@@ -8,6 +8,7 @@ const soundHint = document.getElementById("soundHint");
 const newgame = document.getElementById("newgame");
 let missed = 0;
 let movie;
+let correct = [];
 
 
 //variables and arrays for sounds

@@ -44,8 +44,6 @@ function randomSounds(movieObject) {
     movieObject.sounds = array3;
     array3 = [];
   }
-  console.log(sounds);
-  console.log(array3);
 
 }
 
@@ -106,9 +104,12 @@ function gamePlay(letter) {
   if (checkLetter(letter)) {
     showLetterInPhrase(letter);
     correctLetter(letter);
+    correct.push(letter);
+    checkForWin();
   } else if (!checkLetter(letter)) {
     incorrectLetter(letter);
     missed += 1;
+    checkForLose();
   }
 }
 
@@ -160,4 +161,23 @@ for (let letters of keyboard) {
     let letter = e.target.textContent;
     gamePlay(letter);
   });
+}
+
+//this method returns an array of all the unique letters in the phrase
+function getUniqueLetters() {
+  const getUnique = new Set(movieTitleToArray());//create an object of unique letters
+  const unique = [...getUnique];//turn above object back into an array
+  return unique;
+}
+
+function checkForWin() {
+  if (correct.length === getUniqueLetters().length - 1) {
+  console.log("You win!")
+  }
+}
+
+function checkForLose() {
+  if (missed === 5 || missed > 4) {
+    console.log("You lose!");
+  }
 }

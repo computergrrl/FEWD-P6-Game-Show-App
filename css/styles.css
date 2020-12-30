@@ -134,6 +134,11 @@ button {
 
 }
 
+.wrong:hover, .chosen:hover {
+  pointer-events: none;
+  cursor: crosshair;
+}
+
 .btn__reset {
   padding: 8px;
   margin: 50px auto;

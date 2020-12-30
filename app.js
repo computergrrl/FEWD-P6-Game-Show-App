@@ -145,6 +145,7 @@ function incorrectLetter(letter) {
 function resetGame() {
   phrase.innerHTML = " ";
   missed = 0;
+  correct = [];
   resetHearts();
   startGame();
 
@@ -166,14 +167,16 @@ for (let letters of keyboard) {
 
 //this method returns an array of all the unique letters in the phrase
 function getUniqueLetters() {
-  const getUnique = new Set(movieTitleToArray());//create an object of unique letters
-  const unique = [...getUnique];//turn above object back into an array
+  const getUnique = new Set(movieTitleToArray()); //create an object of unique letters
+  const unique = [...getUnique]; //turn above object back into an array
   return unique;
 }
 
 function checkForWin() {
-  if (correct.length === getUniqueLetters().length - 1) {
-  console.log("You win!")
+  if (spaceTester() && correct.length == getUniqueLetters().length - 1) {
+    console.log("You win the game with spaces")
+  } else if(!spaceTester() && correct.length == getUniqueLetters().length) {
+    console.log("You win the game with no spaces")
   }
 }
 
@@ -185,7 +188,7 @@ function checkForLose() {
 
 //remove a heart from the scoreboard
 function removeHearts() {
-  let index = missed -1; //set an index variable to use on lives array
+  let index = missed - 1; //set an index variable to use on lives array
   const source = "images/lostHeart.png";
   lives[index].src = source; //set the next heart (starting at zero index) to the new src image)
 }
@@ -196,4 +199,14 @@ function resetHearts() {
   for (let life of lives) {
     life.src = source;
   }
+}
+
+//function to test for whether there are spaces in the phrase
+function spaceTester() {
+  if (getUniqueLetters().includes(" ")) {
+    return true;
+  } else {
+    return false;
+  }
+
 }

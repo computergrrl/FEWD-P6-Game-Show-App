@@ -43,7 +43,7 @@ let array3 = [];
 
 let moviesAndSounds = [
   {title: "The Big Lebowski", sounds: [asianamerican, peedonrug], soundwin: abides, soundlose: wrongguy, },
-  {title: "The Princess Bride" , sounds: [inconceivable, cantcompete,], soundwin: inconceivable, soundlose: disappointment,},
+  {title: "The Princess Bride" , sounds: [myname, cantcompete,], soundwin: inconceivable, soundlose: disappointment,},
   {title: "Ghostbusters", sounds: [dontcross, majorappliance,], soundwin: keymaster, soundlose: backoff,},
   {title: "Star Wars A New Hope", sounds: [droidsyourlooking, helpme,], soundwin: forcewithyou, soundlose: suffer,},
   {title: "Happy Gilmore", sounds: [foronereason, myworldnow, tapitin, ], soundwin: outtahere, soundlose: priceiswrong, }

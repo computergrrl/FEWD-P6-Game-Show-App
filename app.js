@@ -218,6 +218,7 @@ function endOfGameOverlay(gameResult) {
   }
 
   overlay.className = gameResult;
+  title.className = "winlose";
   title.innerText = message;
   buttonStart.innerText = "Try again?";
   overlay.style.display = "block";

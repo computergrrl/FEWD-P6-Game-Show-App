@@ -149,6 +149,7 @@ function incorrectLetter(letter) {
 function resetGame() {
   phrase.innerHTML = " ";
   missed = 0;
+  array3 = [];
   correct = [];
   resetHearts();
   startGame();

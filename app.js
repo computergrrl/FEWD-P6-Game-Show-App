@@ -211,11 +211,6 @@ function spaceTester() {
 }
 
 function endOfGameOverlay(gameResult) {
-  // if (gameResult == "win") {
-  //   message = `Congratulations! You correctly guessed ${movie.title}!`
-  // } else {
-  //   message = `Oh too bad! The movie was ${movie.title}`;
-  // }
 
   message = gameResult == "win" ? `🎉 Congratulations! You correctly guessed "${movie.title}"! 🎉`:
   `😞 Oh too bad! The movie was "${movie.title}" 😞`;
@@ -223,9 +218,16 @@ function endOfGameOverlay(gameResult) {
   overlay.className = gameResult;
   title.className = "winlose";
   title.innerText = message;
-  buttonStart.innerText = "Try again?";
+  buttonStart.innerText = "Play again?";
   overlay.style.display = "block";
 
-  console.log("overlay should be showing?");
-
 }
+
+//event listener for keydown event
+document.addEventListener("keydown" , (e) => {
+  for (let letter of keyboard) { 
+      if (letter.innerText == e.key) {
+        letter.click();
+      }
+  }
+});

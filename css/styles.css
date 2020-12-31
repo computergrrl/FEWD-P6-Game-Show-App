@@ -189,7 +189,7 @@ button {
 }
 
 .win {
-  background-color: var(--color-win);
+  background-color: #1c481e;
   font-size: 2.8em;
 }
 
@@ -198,7 +198,7 @@ button {
 }
 
 .lose {
-  background-color: var(--color-lose);
+  background-color: #770202;
   font-size: 2.8em;
 }
 

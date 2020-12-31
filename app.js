@@ -211,11 +211,14 @@ function spaceTester() {
 }
 
 function endOfGameOverlay(gameResult) {
-  if (gameResult == "win") {
-    message = `Congratulations! You correctly guessed ${movie.title}!`
-  } else {
-    message = `Oh too bad! The movie was ${movie.title}`;
-  }
+  // if (gameResult == "win") {
+  //   message = `Congratulations! You correctly guessed ${movie.title}!`
+  // } else {
+  //   message = `Oh too bad! The movie was ${movie.title}`;
+  // }
+
+  message = gameResult == "win" ? `🎉 Congratulations! You correctly guessed "${movie.title}"! 🎉`:
+  `😞 Oh too bad! The movie was "${movie.title}" 😞`;
 
   overlay.className = gameResult;
   title.className = "winlose";

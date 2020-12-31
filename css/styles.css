@@ -171,6 +171,14 @@ button {
   border-radius: 5px;
 }
 
+#overlay.win {
+  color: #1ccc12;
+}
+
+#overlay.lose {
+  color: #cc1212;
+}
+
 .title {
   color: #FFF;
 }
@@ -189,7 +197,7 @@ button {
 }
 
 .win {
-  background-color: #1c481e;
+  background-color: #000;
   font-size: 2.8em;
 }
 
@@ -198,7 +206,7 @@ button {
 }
 
 .lose {
-  background-color: #770202;
+  background-color: #000;
   font-size: 2.8em;
 }
 

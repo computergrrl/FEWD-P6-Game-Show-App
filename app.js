@@ -1,8 +1,7 @@
 //Remove overlay and start game
 buttonStart.addEventListener("click", () => {
-  const overlay = document.getElementById("overlay");
   overlay.style.display = "none";
-  startGame();
+  resetGame();
 
 });
 
@@ -153,14 +152,9 @@ function resetGame() {
   correct = [];
   resetHearts();
   startGame();
+  overlay.classList.remove("win", "lose");
 
 }
-
-newgame.addEventListener("click", () => {
-    resetGame();
-  }
-
-);
 
 //this loop sets the keyboard letters up for initial gameplay
 for (let letters of keyboard) {
@@ -178,16 +172,17 @@ function getUniqueLetters() {
 }
 
 function checkForWin() {
+  //check first if there's a space in the phrase 
   if (spaceTester() && correct.length == getUniqueLetters().length - 1) {
-    console.log("You win the game with spaces")
-  } else if(!spaceTester() && correct.length == getUniqueLetters().length) {
-    console.log("You win the game with no spaces")
+    endOfGameOverlay("win");
+  } else if (!spaceTester() && correct.length == getUniqueLetters().length) {
+    endOfGameOverlay("win");
   }
 }
 
 function checkForLose() {
   if (missed === 5 || missed > 4) {
-    console.log("You lose!");
+    endOfGameOverlay("lose");
   }
 }
 
@@ -213,5 +208,20 @@ function spaceTester() {
   } else {
     return false;
   }
+}
+
+function endOfGameOverlay(gameResult) {
+  if (gameResult == "win") {
+    message = `Congratulations! You correctly guessed ${movie.title}!`
+  } else {
+    message = `Oh too bad! The movie was ${movie.title}`;
+  }
+
+  overlay.className = gameResult;
+  title.innerText = message;
+  buttonStart.innerText = "Try again?";
+  overlay.style.display = "block";
+
+  console.log("overlay should be showing?");
 
 }

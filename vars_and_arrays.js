@@ -2,13 +2,15 @@
 const keyboard = document.querySelectorAll("#qwerty button");
 const phrase = document.querySelector("#phrase ul");
 const buttonStart = document.querySelector(".btn__reset");
+const overlay = document.getElementById("overlay");
+const title = document.querySelector(".title");
 const theLetters = document.getElementsByClassName("letter");
 buttonStart.style.cursor = "pointer";
 const soundHint = document.getElementById("soundHint");
-const newgame = document.getElementById("newgame");
 const lives = document.querySelectorAll("#scoreboard ol li img");
 let missed = 0;
 let movie;
+let message;
 let correct = [];
 
 

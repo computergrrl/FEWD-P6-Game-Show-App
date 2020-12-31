@@ -16,7 +16,6 @@
   --font-size-medium: 20px;
   --transition: all .2s ease-in-out;
 }
-
 /* main */
 
 * {
@@ -34,6 +33,7 @@ body {
 li, ol, ul {
   padding: 0;
   display: inline-block;
+  transition: border 1s;
 }
 
 h2 {
@@ -97,6 +97,7 @@ button {
 .show {
   color: #000;
   background-color: #76CE82;
+  border: lime 2px inset;
 }
 
 /* Keyboard */
@@ -105,13 +106,6 @@ button {
   display: flex;
   justify-content: center;
 }
-
-/* .chosen {
-  background: var(--color-neutral);
-  border-radius: 5px;
-  font-size: var(--font-size-medium);
-  color: #FFFFFF;
-} */
 
 .chosen {
   background: #77777a;
@@ -213,3 +207,5 @@ button {
 .lose a {
   color: var(--color-lose);
 }
+
+

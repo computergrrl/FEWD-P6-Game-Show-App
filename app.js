@@ -10,9 +10,11 @@ function getRandomMovie() {
   //Choose a random phrase
   let random = Math.floor(Math.random() * (moviesAndSounds.length));
   let movie = moviesAndSounds[random];
+
   //remove movie from array after selected and push it to another array
   let remove = moviesAndSounds.splice(random, 1);
   array2.push(remove[0]);
+
   //once all movies have been used, reset the array
   if (moviesAndSounds.length === 0) {
     moviesAndSounds = array2;
@@ -39,7 +41,7 @@ function randomSounds(movieObject) {
   let remove = sounds.splice(random, 1);
   array3.push(remove[0]);
 
-  //once all movies have been used, reset the array
+  //once all sounds have been used, reset the array
   if (sounds.length === 0) {
     movieObject.sounds = array3;
     array3 = [];
@@ -128,6 +130,7 @@ function correctLetter(letter) {
   for (let key of keyboard) {
     if (key.textContent == letter) {
       key.classList.add("chosen");
+      key.disabled = true;
     }
   }
 }
@@ -137,6 +140,7 @@ function incorrectLetter(letter) {
   for (let key of keyboard) {
     if (key.textContent == letter) {
       key.classList.add("wrong");
+      key.disabled = "true";
     }
   }
 }

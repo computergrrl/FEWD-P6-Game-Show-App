@@ -27,14 +27,23 @@ const helpme = document.getElementById("helpme");
 const suffer = document.getElementById("suffer");
 const droidsyourlooking = document.getElementById("droidsyourlooking");
 const force = document.getElementById("forcewithyou");
+const asianamerican = document.getElementById("asianamerican");
+const foronereason = document.getElementById("foronereason");
+const myworldnow = document.getElementById("myworldnow");
+const outtahere = document.getElementById("outtahere");
+const peedonrug = document.getElementById("peedonrug");
+const priceiswrong = document.getElementById("priceiswrong");
+const tapitin = document.getElementById("tapitin");
+
 //create empty arrays to store used values
 let array2 = [];
 let array3 = [];
 
 let moviesAndSounds = [
-  {title: "The Big Lebowski", sounds: [abides, wrongguy]},
+  {title: "The Big Lebowski", sounds: [abides, wrongguy, asianamerican, peedonrug]},
   {title: "The Princess Bride" , sounds: [disappointment, inconceivable, cantcompete,]},
   {title: "Ghostbusters", sounds: [backoff, dontcross, keymaster, majorappliance,]},
   {title: "Star Wars A New Hope", sounds: [suffer, droidsyourlooking, helpme, forcewithyou,]},
+  {title: "Happy Gilmore", sounds: [foronereason, myworldnow, outtahere, priceiswrong,tapitin]}
   
 ];

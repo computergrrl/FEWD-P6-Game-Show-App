@@ -174,15 +174,15 @@ function getUniqueLetters() {
 function checkForWin() {
   //check first if there's a space in the phrase 
   if (spaceTester() && correct.length == getUniqueLetters().length - 1) {
-    endOfGameOverlay("win");
+    endOfGameOverlay("win", movie.soundwin);
   } else if (!spaceTester() && correct.length == getUniqueLetters().length) {
-    endOfGameOverlay("win");
+    endOfGameOverlay("win", movie.soundwin);
   }
 }
 
 function checkForLose() {
   if (missed === 5 || missed > 4) {
-    endOfGameOverlay("lose");
+    endOfGameOverlay("lose", movie.soundlose);
   }
 }
 
@@ -210,7 +210,7 @@ function spaceTester() {
   }
 }
 
-function endOfGameOverlay(gameResult) {
+function endOfGameOverlay(gameResult, sound) {
 
   message = gameResult == "win" ? `🎉 Congratulations! You correctly guessed "${movie.title}"! 🎉`:
   `😞 Oh too bad! The movie was "${movie.title}" 😞`;
@@ -220,6 +220,7 @@ function endOfGameOverlay(gameResult) {
   title.innerText = message;
   buttonStart.innerText = "Play again?";
   overlay.style.display = "block";
+  sound.play();
 
 }
 

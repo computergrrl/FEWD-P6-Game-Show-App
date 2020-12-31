@@ -42,10 +42,10 @@ let array2 = [];
 let array3 = [];
 
 let moviesAndSounds = [
-  {title: "The Big Lebowski", sounds: [abides, wrongguy, asianamerican, peedonrug]},
-  {title: "The Princess Bride" , sounds: [disappointment, inconceivable, cantcompete,]},
-  {title: "Ghostbusters", sounds: [backoff, dontcross, keymaster, majorappliance,]},
-  {title: "Star Wars A New Hope", sounds: [suffer, droidsyourlooking, helpme, forcewithyou,]},
-  {title: "Happy Gilmore", sounds: [foronereason, myworldnow, outtahere, priceiswrong,tapitin]}
+  {title: "The Big Lebowski", sounds: [asianamerican, peedonrug], soundwin: abides, soundlose: wrongguy, },
+  {title: "The Princess Bride" , sounds: [inconceivable, cantcompete,], soundwin: inconceivable, soundlose: disappointment,},
+  {title: "Ghostbusters", sounds: [dontcross, majorappliance,], soundwin: keymaster, soundlose: backoff,},
+  {title: "Star Wars A New Hope", sounds: [droidsyourlooking, helpme,], soundwin: forcewithyou, soundlose: suffer,},
+  {title: "Happy Gilmore", sounds: [foronereason, myworldnow, tapitin, ], soundwin: outtahere, soundlose: priceiswrong, }
   
 ];
